@@ -16,9 +16,8 @@ library(shinythemes)
 
 
   # Define UI
-  ui <- fluidPage(theme = shinytheme("cerulean"),
+  ui <- fluidPage(theme = shinytheme("journal"),
     navbarPage(
-      # theme = "cerulean",  # <--- To use a theme, uncomment this
       "My first app",
       tabPanel("Navbar 1",
                sidebarPanel(

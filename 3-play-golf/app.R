@@ -11,9 +11,13 @@ library(shinythemes)
 library(data.table)
 library(RCurl)
 library(randomForest)
+library(dplyr)
 
 # Read data
 weather <- read.csv(text = getURL("https://raw.githubusercontent.com/dataprofessor/data/master/weather-weka.csv") )
+
+weather <- weather |> 
+  mutate(across(all_of(c('outlook', 'play')), as.factor))
 
 # Build model
 model <- randomForest(play ~ ., data = weather, ntree = 500, mtry = 4, importance = TRUE)
